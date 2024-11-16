@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <div class="product-page">
+        <header>
+            <h1>Santa Clara Community Marketplace</h1>
+            <div class="top-section">
+                <div class="pfp"></div>
+            </div>
+        </header>
+
+        <div class="main">
+            <div class="product-container">
+                <div class="product-picture">
+                    <img src="chair.png" alt="Dining Chair">
+                </div>
+                <div class="product-description">
+                    <h2>$45</h2>
+                    <p>Dining Chair</p>
+                    <p>Seller: Jack Davidson</p>
+                </div>
+            </div>
+
+            <div class="payment-section">
+                <form>
+                    <div class="form-group">
+                        <label for="venmo-id">Venmo ID</label>
+                        <input type="text" id="venmo-id" placeholder="Enter your Venmo ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-location">Delivery Location</label>
+                        <input type="text" id="delivery-location" placeholder="Enter delivery or handoff locaiton">
+                    </div>
+                    <div class="form-group">
+                        <label for="more-delivery-instructions">Additional Delivery Instructions</label>
+                        <textarea id="more-delivery-instructions" placeholder="Enter any additional delivery instructions"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="remove-button">Remove Item From Cart</button>
+                        <button type="submit" class="checkout-button">Checkout</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
