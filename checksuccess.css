@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 20px;
+}
+
+.checkoutsuccess {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #444;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+}
+
+.pfp {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    border: 1px solid #999;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.pcontains {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ppicture img {
+    max-width: 150px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f4f4f4;
+}
+
+.pdescription h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: f50000;
+}
+
+.pdescription p {
+    font-size: 16px;
+    color: #666;
+}
+
+.success {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f50000;
+    padding: 10px;
+    border-left: 4px solid f50000;
+    background-color: #f4fff4;
+    border-radius: 5px;
+}
+

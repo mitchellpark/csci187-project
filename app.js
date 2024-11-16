@@ -1,35 +1,50 @@
 import { auth } from "./fireconfig.js";
-import { createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
-function createUser() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+const db = getFirestore();
 
-    if (!email.endsWith('@scu.edu')) {
-        alert("Only Santa Clara Edu emails allowed");
-        return;
+async function populateProfile() {
+    const user = auth.currentUser;
+    if (user) {
+        const uc = doc(db, "Users", user.uid);
+        const udc = await getDoc(uc);
+
+        if (udc.exists()) {
+            const userData = udc.data();
+            document.getElementById("firstName").value = userData["First Name"] || "";
+            document.getElementById("lastName").value = userData["Last Name"] || "";
+            document.getElementById("address").value = userData["Address"] || "";
+            document.getElementById("standing").value = userData["Standing"] || "";
+        } else {
+            console.log("empty!");
+        }
+    } else {
+        console.log("error!");
     }
-
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((res) => {
-            const user = res.user;
-            alert("Registration success! Please check your email to verify.");
-
-            sendEmailVerification(user)
-                .then(() => {
-                    alert("Verification email was sent!");
-                })
-                .catch((verificationError) => {
-                    alert(`Error sending verification email: ${verificationError.message}`);
-                });
-        })
-        .catch((error) => {
-            alert(`Error! ${error.message}`);
-        });
 }
 
-document.getElementById("regform").addEventListener("submit", function(event) {
-    event.preventDefault();
-    createUser();
-});
+async function savetoDB() {
+    const user = auth.currentUser;
+    if (user) {
+        const uc = doc(db, "Users", user.uid);
+        await setDoc(uc, {
+            "First Name": document.getElementById("firstName").value,
+            "Last Name": document.getElementById("lastName").value,
+            "Address": document.getElementById("address").value,
+            "Standing": document.getElementById("standing").value,
+        }, { merge: true });
 
+        alert("Profile updated");
+    } else {
+        console.log("error");
+    }
+}
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        populateProfile(); 
+    } else {
+        console.log("No log in");
+    }
+});
