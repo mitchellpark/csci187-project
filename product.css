@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.top-header {
+    display: flex;
+    align-items: center;
+}
+
+.cart {
+    background-color: white;
+    border: 2px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.pfp {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.product-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.product {
+    grid-column: 1 / 2;
+}
+
+.product-pic {
+    border: 2px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-pic img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-description {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product-description h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.product-description p {
+    font-size: 18px;
+    color: #666;
+}
+
+.buttons-box {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.buy-button span {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.make-offer-button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.make-offer-button label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.make-offer-button input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.seller-information {
+    grid-column: 3 / 4;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.seller-information h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.seller-information p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
