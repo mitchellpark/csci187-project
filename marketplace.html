@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="marketplace.css">
+</head>
+<body>
+    <div class="containerMain">
+        <header>
+            <h1>Santa Clara Community Marketplace</h1>
+            <div class="headerBar">
+                <div class="profileBox"></div>
+            </div>
+        </header>
+
+        <div class="searchBar">
+            <input type="text" placeholder="Search for items" />
+            <button>Search!</button>
+        </div>
+
+        <div class="contentWrapper">
+            <aside class="filterColumn">
+                <h2>Filter</h2>
+
+                <div class="priceInputs">
+                    <div class="priceGroup">
+                        <div class="priceField">
+                            <span>Minimum Price</span>
+                            <input type="number" class="minValue" value="0">
+                        </div>
+                        <div class="priceField">
+                            <span>Maximum Price</span>
+                            <input type="number" class="maxValue" value="1000">
+                        </div>
+                    </div>
+                    <div class="sliderTrack">
+                        <div class="rangeHighlight"></div>
+                    </div>
+                </div>
+
+                <div class="rangeInputs">
+                    <input type="range" class="rangeStart" min="0" max="10000" value="0" step="1">
+                    <input type="range" class="rangeEnd" min="0" max="10000" value="1000" step="1">
+                </div>
+
+                <h1></h1>
+                <label for="colorPicker">Color:</label>
+                <select id="colorPicker">
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                </select>
+
+                <label for="genderSelector">Gender:</label>
+                <select id="genderSelector">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Unisex">Unisex</option>
+                </select>
+
+                <label for="conditionSelect">Condition:</label>
+                <select id="conditionSelect">
+                    <option value="new">New</option>
+                    <option value="used">Used</option>
+                    <option value="parts-not-working">Parts not working</option>
+                </select>
+            </aside>
+
+            <section class="productGrid">
+                <div class="productItem">
+                    <img src="chair1.png" alt="Dining Chair">
+                    <p>$45<br>Dining Chair</p>
+                </div>
+                <div class="productItem">
+                    <img src="plate.png" alt="Plate">
+                    <p>$5<br>Plate</p>
+                </div>
+                <div class="productItem">
+                    <img src="shirt.png" alt="Dress Shirt">
+                    <p>$25<br>Dress Shirt</p>
+                </div>
+                <div class="productItem">
+                    <img src="chair1.png" alt="Dining Chair">
+                    <p>$25<br>Dining Chair</p>
+                </div>
+                <div class="productItem">
+                    <img src="plate.png" alt="Plate">
+                    <p>$3<br>Plate</p>
+                </div>
+                <div class="productItem">
+                    <img src="shirt.png" alt="Dress Shirt">
+                    <p>$35<br>Dress Shirt</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const rv = 
+            document.querySelector(".price");
+        const range = 
+            document.querySelectorAll(".rinput");
+        
+        let priceGap = 500;
+        
+        const ip = 
+            document.querySelectorAll(".pinput");
+        for (let i = 0; i < ip.length; i++) {
+            ip[i].addEventListener("input", e => {
+        
+                let minp = parseInt(ip[0].value);
+                let maxp = parseInt(ip[1].value);
+                let diff = maxp - minp
+        
+                if (minp < 0) {
+                    alert("minimum price cannot be less than 0");
+                    ip[0].value = 0;
+                    minp = 0;
+                }
+        
+                if (maxp > 10000) {
+                    alert("maximum price cannot be greater than 10000");
+                    ip[1].value = 10000;
+                    maxp = 10000;
+                }
+        
+                if (minp > maxp - priceGap) {
+                    ip[0].value = maxp - priceGap;
+                    minp = maxp - priceGap;
+        
+                    if (minp < 0) {
+                        ip[0].value = 0;
+                        minp = 0;
+                    }
+                }
+        
+                if (diff >= priceGap && maxp <= range[1].max) {
+                    if (e.target.className === "minput") {
+                        range[0].value = minp;
+                        let value1 = range[0].max;
+                        rv.style.left = `${(minp / value1) * 100}%`;
+                    }
+                    else {
+                        range[1].value = maxp;
+                        let value2 = range[1].max;
+                        rv.style.right = 
+                            `${100 - (maxp / value2) * 100}%`;
+                    }
+                }
+            });
+        
+            for (let i = 0; i < range.length; i++) {
+                range[i].addEventListener("input", e => {
+                    let minVal = 
+                        parseInt(range[0].value);
+                    let maxVal = 
+                        parseInt(range[1].value);
+                    let diff = maxVal - minVal
+                    if (diff < priceGap) {
+                        if (e.target.className === "minrange") {
+                            range[0].value = maxVal - priceGap;
+                        }
+                        else {
+                            range[1].value = minVal + priceGap;
+                        }
+                    }
+                    else {
+                        ip[0].value = minVal;
+                        ip[1].value = maxVal;
+                        rv.style.left =
+                            `${(minVal / range[0].max) * 100}%`;
+                        rv.style.right =
+                            `${100 - (maxVal / range[1].max) * 100}%`;
+                    }
+                });
+            }
+        }</script>
+</body>
+</html>
