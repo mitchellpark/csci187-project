@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Listing</title>
+    <link rel="stylesheet" href="sell.css">
+</head>
+<body>
+    <div class="list">
+        <header class="header">
+            <nav class="navbar">
+                <a href="profile.html">My Profile</a>
+                <a href="orderhistory.html">Order History</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="sell.html">List</a>
+                <button id="signOutButton" class="signout">Sign Out</button>
+            </nav>
+        </header>
+        <main class="main">
+            <h2>Create a Listing</h2>
+            <form id="listingForm">
+                <label for="title">Title:</label>
+                <input type="text" id="title" placeholder="Enter listing title" required>
+            
+                <label for="description">Description:</label>
+                <textarea id="description" placeholder="Enter listing description" required></textarea>
+            
+                <label for="price">Price ($):</label>
+                <input type="number" id="price" placeholder="Enter price" required>
+            
+                <label for="category">Category:</label>
+                <select id="category" required>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Clothing/Accessories">Clothing/Accessories</option>
+                    <option value="Office Supplies">Office Supplies</option>
+                    <option value="Jewelry">Jewelry</option>
+                    <option value="Sporting Goods">Sporting Goods</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Other">Other</option>
+                </select>
+            
+                <label for="image">Upload Image (Optional):</label>
+                <input type="file" id="image" accept="image/*">
+            
+                <button type="submit">Create Listing</button>
+            </form>
+        </main>
+    </div>
+    <script type="module" src="sell.js"></script>
+</body>
+</html>
+
+
+

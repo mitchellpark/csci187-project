@@ -9,36 +9,49 @@
 <body>
     <div class="orderhist">
         <header class="header">
-            <div class="pfp">
-            </div>
             <nav class="navbar">
-                <a href="inbox.html">Inbox</a>
-                <a href="order_history.html">Order History</a>
-                <a href="#">Reviews</a>
-                <a href="#">Financials</a>
-                <a href="#">Liked Posts</a>
+                <a href="profile.html">My Profile</a>
+                <a href="orderhistory.html">Order History</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="sell.html">List</a>
+                <button id="signOutButton" class="signout">Sign Out</button>
             </nav>
         </header>
         <main class="main">
-            <table class="ordertable">
+            <h2>Your Order History</h2>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Date</th>
                         <th>Price</th>
                         <th>Seller</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="orderTableBody">
                     <tr>
-                        <td>7/09/25</td>
-                        <td>$95</td>
-                        <td>Jack Davidson</td>
-                        <td>Completed</td>
+                        <td colspan="5">Loading order history</td>
                     </tr>
                 </tbody>
             </table>
+            <div id="reviewFormContainer" style="display:none;">
+                <h3>Leave a Review</h3>
+                <form id="reviewForm">
+                    <label for="rating">Rating (1–5):</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5" required>
+                    <label for="comment">Comment:</label>
+                    <textarea id="comment" name="comment" rows="4" required></textarea>
+                    <button type="submit">Submit Review</button>
+                    <button type="button" id="cancelReviewButton">Cancel</button>
+                </form>
+            </div>
         </main>
     </div>
+    <script type="module" src="orderhistory.js"></script>
 </body>
 </html>
+
+
+
+

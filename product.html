@@ -3,48 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketplace</title>
+    <title>Product Details</title>
     <link rel="stylesheet" href="product.css">
 </head>
 <body>
     <div class="main">
-        
         <header>
             <h1>Santa Clara Community Marketplace</h1>
             <div class="top-header">
-                <button class="cart">Cart</button>
-                <div class="pfp"></div>
+                <button id="marketplaceButton" class="nav-button">Marketplace</button>
+                <button id="cartButton" class="nav-button">Cart</button>
+                <div id="profileButton" class="pfp"></div>
             </div>
         </header>
 
-        
-        <div class="product-main">
-            
+        <div class="producT">
             <div class="product">
-                <div class="product-pic">
-                    
-                    <img src="chair.png" alt="Dining Chair" />
+                <div class="photo">
+                    <img id="productImage" src="placeholder.png" alt="Product Image" />
                 </div>
                 <div class="product-description">
-                    <h2>$45</h2>
-                    <p>Dining Chair</p>
+                    <p id="productTitle">Product Title</p>
                 </div>
             </div>
 
-            <div class="buttons-box">
-                <button class="buy-button">Buy Now<br><span>$45</span></button>
-                <div class="make-offer-button">
-                    <label for="offer-price">Make Offer</label>
-                    <input type="number" id="offer-price" placeholder="$" />
-                </div>
+            <div class="buttons">
+                <button class="buy" id="buyNow">Buy Now<br><span id="buyPrice">$0</span></button>
             </div>
 
-            <div class="seller-information">
-                <h3>Seller: Jack Davidson</h3>
-                <p>Dining chair from Ikea. Like new.</p>
-                <p>Asking $45 or best offer. Message me if you have questions.</p>
+            <div class="sellerInfo">
+                <h3 id="sellerName">Category: <span id="productCategory"></span></h3>
+                <p id="productDescription"></p>
             </div>
         </div>
     </div>
+
+    <script type="module" src="product.js"></script>
 </body>
 </html>
+
+
