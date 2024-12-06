@@ -7,36 +7,24 @@
     <link rel="stylesheet" href="reviews.css">
 </head>
 <body>
-    <div class="reviewcontainer">
+    <div class="review">
         <header class="header">
-            <div class="profilepicture">
-            </div>
+            <div class="profilepicture" id="profilePicture"></div>
             <nav class="navbar">
-                <a href="inbox.html">Inbox</a>
-                <a href="order_history.html">Order History</a>
+                <a href="profile.html">My Profile</a>
+                <a href="orderhistory.html">Order History</a>
                 <a href="reviews.html">Reviews</a>
-                <a href="#">Financials</a>
-                <a href="#">Liked Posts</a>
+                <a href="sell.html">List</a>
+                <button id="signOutButton" class="signout">Sign Out</button>
             </nav>
         </header>
-        <main class="main-content">
-            <h2> Buyer Reviews</h2>
-            <div class="reviewchart">
-                <div class="reviewcard">
-                    <h3>James</h3>
-                    <div class="stars">
-                        ★ ★ ★ ★ ★
-                    </div>
-                    <p>Bought a chair from Jack. Great communication and easy transaction.</p>
-                </div>
-                <div class="reviewcard">
-                    <h3>No Review</h3>
-                </div>
-                <div class="reviewcard">
-                    <h3>No Review</h3>
-                </div>
+        <main class="main">
+            <h2>Reviews for You</h2>
+            <div id="reviewChart" class="reviewchart">
+                <p>Loading review</p>
             </div>
         </main>
     </div>
+    <script type="module" src="reviews.js"></script>
 </body>
 </html>
